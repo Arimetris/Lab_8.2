@@ -1,4 +1,4 @@
-#include "Header.h"
+ï»¿#include "Header.h"
 
 void del_Node(struct Node** head, int len)
 {
@@ -8,23 +8,23 @@ void del_Node(struct Node** head, int len)
         int i = 0;
         if (len == current->count)
         {
-            // Ž¡à ¡®âª  ¯®á«¥¤­¥£® ã§« 
+            // ÐžÐ±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ³Ð¾ ÑƒÐ·Ð»Ð°
             if (current->next == NULL && current->prev != NULL)
                 current->prev->next = NULL;
 
-            // Ž¡à ¡®âª  ¯¥à¢®£® ã§« 
+            // ÐžÐ±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ ÑƒÐ·Ð»Ð°
             else if (current->prev == NULL && current->next != NULL)
             {
                 current->next->prev = NULL;
                 *head = current->next;
             }
-            // Ž¡à ¡®âª  áà¥¤­¥£® ã§«  (‘ª«¥¨¢ ¥¬ ã§«ë ¢®ªàã£ ã¤ «ï¥¬®£® ã§« )
+            // ÐžÐ±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° ÑÑ€ÐµÐ´Ð½ÐµÐ³Ð¾ ÑƒÐ·Ð»Ð° (Ð¡ÐºÐ»ÐµÐ¸Ð²Ð°ÐµÐ¼ ÑƒÐ·Ð»Ñ‹ Ð²Ð¾ÐºÑ€ÑƒÐ³ ÑƒÐ´Ð°Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÑƒÐ·Ð»Ð°)
             else if (current->prev != NULL && current->next != NULL)
             {
                 current->prev->next = current->next;
                 current->next->prev = current->prev;
             }
-            // Ž¡à ¡®âª  ¥¤¨­áâ¢¥­­®£® ã§« 
+            // ÐžÐ±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° ÐµÐ´Ð¸Ð½ÑÑ‚Ð²ÐµÐ½Ð½Ð¾Ð³Ð¾ ÑƒÐ·Ð»Ð°
             else
             {
                 free(*head);
@@ -37,7 +37,7 @@ void del_Node(struct Node** head, int len)
             free(tmp);
             i++;
         }
-        // …á«¨ ¡ë«® ã¤ «¥­¨¥, â® ­¦­® ¯à®¢¥à¨âì á¤¢¨­ãâë© ã§¥«
+        // Ð•ÑÐ»Ð¸ Ð±Ñ‹Ð»Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ, Ñ‚Ð¾ Ð½Ð¶Ð½Ð¾ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÑÐ´Ð²Ð¸Ð½ÑƒÑ‚Ñ‹Ð¹ ÑƒÐ·ÐµÐ»
         if (i == 0)
             current = current->next;
     }
@@ -52,12 +52,12 @@ int Len_longest_word(struct Node* current)
             len = current->count;
         current = current->next;
     }
-    printf("‘ ¬ ï ¡®«ìè ï áâà®ª  ¤«¨­­ë: %d\n", len);
+    printf("Ð¡Ð°Ð¼Ð°Ñ Ð±Ð¾Ð»ÑŒÑˆÐ°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ° Ð´Ð»Ð¸Ð½Ð½Ñ‹: %d\n", len);
     return len;
 }
 struct Node* get_list(char* input)
 {
-    // “ª § â¥«ì ­  ¯à®¡¥« ¢ áâà®ª¥
+    // Ð£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° Ð¿Ñ€Ð¾Ð±ÐµÐ» Ð² ÑÑ‚Ñ€Ð¾ÐºÐµ
     char *token = strtok(input, " ");
     struct Node *head = NULL, *previous = NULL;
     
@@ -67,7 +67,7 @@ struct Node* get_list(char* input)
         if (current == NULL)
             exit(1);
 
-        // ‡ ¯¨áë¢ ¥¬ ¤ ­­ë¥ ¢ áâàãªâãàã
+        // Ð—Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² ÑÑ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ñƒ
         strncpy(current->word, token, SIZE - 1);
         current->count = strlen(current->word);
 
@@ -77,7 +77,7 @@ struct Node* get_list(char* input)
         if (head == NULL)
             head = current;
         
-        // „¢ ¦¤ë á¢ï§ë¢ ¥¬
+        // Ð”Ð²Ð°Ð¶Ð´Ñ‹ ÑÐ²ÑÐ·Ñ‹Ð²Ð°ÐµÐ¼
         else
         {
             previous->next = current;
